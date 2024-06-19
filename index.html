@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zynk AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body>
+    <div id="header">
+        <div id="version">Zynk Bot Version 1.0.0 (Beta)</div>
+        <h1>Zynk AI</h1>
+        <button id="mode-toggle" onclick="toggleMode()">Dark Mode</button>
+    </div>
+    <div class="line"></div>
+    <div id="chat-log"></div>
+    <div id="input-container">
+        <input type="text" id="message" placeholder="Type your message here..." />
+        <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const modeToggle = document.getElementById('mode-toggle');
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.textContent = 'Light Mode';
+            } else {
+                modeToggle.textContent = 'Dark Mode';
+            }
+        }
+
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            if (message.trim() === '') return;
+            const response = "This is a simulated response. Backend will be added later.";
+            const chatLog = document.getElementById('chat-log');
+            chatLog.innerHTML += `<div class="user-message"><div class="message-box user-message-box">You: ${message}</div></div>`;
+            chatLog.innerHTML += `<div class="bot-message"><div class="message-box bot-message-box">Bot: ${response}</div></div>`;
+            document.getElementById('message').value = '';
+            chatLog.scrollTop = chatLog.scrollHeight; // Scroll to the bottom
+        }
+
+        document.getElementById('message').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
