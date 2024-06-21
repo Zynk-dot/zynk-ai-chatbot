@@ -1,1 +1,24 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zynk AI</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="header">
+        <div id="version">Zynk Bot Version 1.0.0 (Beta)</div>
+        <h1>Zynk AI</h1>
+        <button id="mode-toggle">Dark Mode</button>
+    </div>
+    <div id="chat-log"></div>
+    <div id="input-container">
+        <input type="text" id="message" placeholder="Type your message here...">
+        <button id="send-button">Send</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
