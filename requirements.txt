@@ -1,1 +1,6 @@
+Flask
+flask-cors
+transformers
+wikipedia-api
+torch
 
