@@ -13,7 +13,8 @@ nlp_model = pipeline("conversational", model="microsoft/DialoGPT-medium")
 
 # Set up Wikipedia API
 user_agent = "ZynkAI/1.0 (https://github.com/Zynk-dot/zynk-ai-chatbot)"
-wiki_wiki = wikipediaapi.Wikipedia('en', user_agent=user_agent)
+wiki_wiki = wikipediaapi.Wikipedia('en')
+wiki_wiki.user_agent = user_agent
 
 @app.route('/')
 def index():
